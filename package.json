@@ -1,0 +1,35 @@
+{
+  "name": "rss-ms",
+  "version": "0.0.1",
+  "description": "Simply RSS reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eidolonzx/project-lvl3-s452.git"
+  },
+  "keywords": [
+    "rss"
+  ],
+  "author": "Michael Solovyev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eidolonzx/project-lvl3-s452/issues"
+  },
+  "homepage": "https://github.com/eidolonzx/project-lvl3-s452#readme",
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.4.1",
+    "jest": "^24.7.1"
+  }
+}
