@@ -12,3 +12,9 @@ test:
 
 lint:
 	npx eslint .
+
+build:
+	npm run deploy
+
+surge:
+	surge ./dist heavenly-quartz.surge.sh/
