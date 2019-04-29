@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>RSS reader</title>
 </head>
+
 <body>
   <div class="container">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">RSS reader</h1>
-        <p class="lead">Insert new RSS feed and click "Add" button.</p>
-        <input type="text" id="rss-feed" placeholder="enter feed url" value="">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <div class="row">
+          <div class="col-sm">
+            <p class="lead">Insert new RSS feed and click "Add" button.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <form class="align-items-start">
+              <div class="form-group">
+                <input type="text" id="user-input-field" placeholder="enter feed url" value="" class="form-control">
+              </div>
+              <button type="submit" id="user-input-button" class="btn btn-primary">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <h3>Feeds</h3>
+        <ul class="feeds-list list-group"></ul>
+      </div>
+      <div class="col-sm">
+        <h3>Articles</h3>
+        <ul class="articles-list list-group"></ul>
       </div>
     </div>
   </div>
 </body>
+
 </html>

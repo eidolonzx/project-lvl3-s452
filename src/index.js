@@ -1,3 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import app from './app';
 
-console.log('Application is started!');
+app();
