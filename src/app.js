@@ -1,6 +1,7 @@
 import isURL from 'validator/lib/isURL';
 import WatchJS from 'melanke-watchjs';
 import axios from 'axios';
+import $ from 'jquery';
 
 const { watch } = WatchJS;
 
@@ -15,6 +16,7 @@ const app = () => {
   const inputField = document.querySelector('#user-input-field');
   const inputButton = document.querySelector('#user-input-button');
   const inputForm = document.querySelector('form');
+  const modal = document.querySelector('#exampleModal');
 
   const proxy = 'https://cors-anywhere.herokuapp.com/';
 
@@ -65,7 +67,9 @@ const app = () => {
           const articleName = article.querySelector('title').textContent;
           const articleDescription = article.querySelector('description').textContent;
           const articleLink = article.querySelector('link').textContent;
+          // state.idCounter += 1;
           return {
+            articleId: state.idCounter,
             articleName,
             articleDescription,
             articleLink,
@@ -86,6 +90,13 @@ const app = () => {
       .catch((error) => {
         console.log(error);
       });
+  });
+
+  // Рендер модального окна
+  $('#exampleModal').on('show.bs.modal', (event) => {
+    console.log('!HERE!');
+    const button = $(event.relatedTarget);
+    modal.querySelector('.modal-body').innerHTML = button.data('description');
   });
 
   // Если урл некорректный, то подсвечиваем поле ввода и выключаем кнопку
@@ -121,9 +132,23 @@ const app = () => {
 
       feed.channelArticles.forEach((article) => {
         const articlesListItem = document.createElement('li');
-        articlesListItem.classList.add('list-group-item');
-        const articleListItemContent = `<a href="${article.articleLink}" target="_blank">${article.articleName}</a>`;
-        articlesListItem.innerHTML = articleListItemContent;
+        articlesListItem.classList.add('list-group-item', 'py-2');
+
+        const articleLink = document.createElement('a');
+        articleLink.setAttribute('href', article.articleLink);
+        articleLink.textContent = `${article.articleName}  `;
+
+        const articleDescButton = document.createElement('button');
+        articleDescButton.classList.add('btn', 'btn-secondary');
+        articleDescButton.textContent = 'View';
+        articleDescButton.setAttribute('type', 'button');
+        articleDescButton.setAttribute('data-toggle', 'modal');
+        articleDescButton.setAttribute('data-target', '#exampleModal');
+        articleDescButton.setAttribute('data-description', article.articleDescription);
+
+        articlesListItem.append(articleLink);
+        articlesListItem.append(articleDescButton);
+
         newArticles.append(articlesListItem);
       });
     });
